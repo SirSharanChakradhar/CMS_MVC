@@ -61,36 +61,44 @@ Here's a visual representation of this process:
                   | Browser |
                   +---------+
                   
---------------------------------------------------------------------------------------------------------------                  
+--------------------------------------------------------------------------------------------------------------      
+
+
+
 The table structure for the project is as follows:
 
 Admin table:
-
 Id (int, primary key)
 Username (nvarchar(50), unique)
 Password (nvarchar(50))
-Event table:
 
+Event table:
 Id (int, primary key)
 Title (nvarchar(50))
 Description (nvarchar(500))
 Location (nvarchar(100))
 Date (datetime)
-Attendee table:
 
+Attendee table:
 Id (int, primary key)
 Name (nvarchar(50))
 Email (nvarchar(100))
 Phone (nvarchar(20))
 EventId (int, foreign key referencing the Event table)
-Registration table:
 
+
+Registration table:
 Id (int, primary key)
 AttendeeId (int, foreign key referencing the Attendee table)
 RegistrationDate (datetime)
 You can use Entity Framework Code First approach to automatically generate these tables in the database based on the model classes. 
 Alternatively, you can manually create the tables in SQL Server Management Studio using the above table structures.
+
+
+
 --------------------------------------------------------------------------------------------------------------
+
+
 Here's a quick rundown of the Controller, Model, and View folders in the project structure we created:
 
 Controllers Folder: This folder contains all of the controller classes that handle requests from the client and return responses. In our project, we have several controllers such as:
@@ -109,95 +117,99 @@ Register.cshtml: This view renders the registration form for users to create an 
 Index.cshtml: This view renders the home page of the application.
 Event.cshtml: This view renders the details of a specific event.
 Admin.cshtml: This view renders the administrator dashboard for managing users and events.
+
+
 --------------------------------------------------------------------------------------------------------------
 
 Folder structure
 
 
-├───Controllers
-│   ├───AccountController.cs
-│   ├───AdminController.cs
-│   ├───AttendeeController.cs
-│   ├───EventController.cs
-│   └───HomeController.cs
-├───Models
-│   ├───Admin.cs
-│   ├───Attendee.cs
-│   ├───Event.cs
-│   ├───Registration.cs
-│   └───ApplicationDbContext.cs
-├───Views
-│   ├───Account
-│   │   ├───Login.cshtml
-│   │   └───Register.cshtml
-│   ├───Admin
-│   │   ├───Create.cshtml
-│   │   ├───Delete.cshtml
-│   │   ├───Details.cshtml
-│   │   ├───Edit.cshtml
-│   │   └───Index.cshtml
-│   ├───Attendee
-│   │   ├───Create.cshtml
-│   │   ├───Delete.cshtml
-│   │   ├───Details.cshtml
-│   │   ├───Edit.cshtml
-│   │   └───Index.cshtml
-│   ├───Event
-│   │   ├───Create.cshtml
-│   │   ├───Delete.cshtml
-│   │   ├───Details.cshtml
-│   │   ├───Edit.cshtml
-│   │   └───Index.cshtml
-│   ├───Home
-│   │   ├───About.cshtml
-│   │   ├───Contact.cshtml
-│   │   └───Index.cshtml
-│   ├───Shared
-│   │   ├───_Layout.cshtml
-│   │   ├───_LoginPartial.cshtml
-│   │   └───Error.cshtml
-├───Scripts
-│   ├───bootstrap.min.css
-│   ├───bootstrap.min.js
-│   └───jquery-3.6.0.min.js
-├───Content
-│   └───Site.css
-├───App_Data
-│   └───ApplicationDbContext.mdf
-├───App_Start
-│   └───RouteConfig.cs
-├───Properties
-│   └───launchSettings.json
-├───bin
-│   ├───Content
-│   │   └───Site.css
-│   ├───Scripts
-│   │   ├───bootstrap.min.css
-│   │   ├───bootstrap.min.js
-│   │   └───jquery-3.6.0.min.js
-│   ├───App_Data
-│   │   └───ApplicationDbContext.mdf
-│   └───...
-├───obj
-│   ├───Debug
-│   │   ├───TempPE
-│   │   ├───Properties
-│   │   ├───Content
-│   │   └───Scripts
-│   ├───Release
-│   │   ├───TempPE
-│   │   ├───Properties
-│   │   ├───Content
-│   │   └───Scripts
-│   └───...
-├───packages
-│   └───...
-├───Views
-│   └───web.config
-├───Web.config
-└───Web.Debug.config
+                                  ├───Controllers
+                                  │   ├───AccountController.cs
+                                  │   ├───AdminController.cs
+                                  │   ├───AttendeeController.cs
+                                  │   ├───EventController.cs
+                                  │   └───HomeController.cs
+                                  ├───Models
+                                  │   ├───Admin.cs
+                                  │   ├───Attendee.cs
+                                  │   ├───Event.cs
+                                  │   ├───Registration.cs
+                                  │   └───ApplicationDbContext.cs
+                                  ├───Views
+                                  │   ├───Account
+                                  │   │   ├───Login.cshtml
+                                  │   │   └───Register.cshtml
+                                  │   ├───Admin
+                                  │   │   ├───Create.cshtml
+                                  │   │   ├───Delete.cshtml
+                                  │   │   ├───Details.cshtml
+                                  │   │   ├───Edit.cshtml
+                                  │   │   └───Index.cshtml
+                                  │   ├───Attendee
+                                  │   │   ├───Create.cshtml
+                                  │   │   ├───Delete.cshtml
+                                  │   │   ├───Details.cshtml
+                                  │   │   ├───Edit.cshtml
+                                  │   │   └───Index.cshtml
+                                  │   ├───Event
+                                  │   │   ├───Create.cshtml
+                                  │   │   ├───Delete.cshtml
+                                  │   │   ├───Details.cshtml
+                                  │   │   ├───Edit.cshtml
+                                  │   │   └───Index.cshtml
+                                  │   ├───Home
+                                  │   │   ├───About.cshtml
+                                  │   │   ├───Contact.cshtml
+                                  │   │   └───Index.cshtml
+                                  │   ├───Shared
+                                  │   │   ├───_Layout.cshtml
+                                  │   │   ├───_LoginPartial.cshtml
+                                  │   │   └───Error.cshtml
+                                  ├───Scripts
+                                  │   ├───bootstrap.min.css
+                                  │   ├───bootstrap.min.js
+                                  │   └───jquery-3.6.0.min.js
+                                  ├───Content
+                                  │   └───Site.css
+                                  ├───App_Data
+                                  │   └───ApplicationDbContext.mdf
+                                  ├───App_Start
+                                  │   └───RouteConfig.cs
+                                  ├───Properties
+                                  │   └───launchSettings.json
+                                  ├───bin
+                                  │   ├───Content
+                                  │   │   └───Site.css
+                                  │   ├───Scripts
+                                  │   │   ├───bootstrap.min.css
+                                  │   │   ├───bootstrap.min.js
+                                  │   │   └───jquery-3.6.0.min.js
+                                  │   ├───App_Data
+                                  │   │   └───ApplicationDbContext.mdf
+                                  │   └───...
+                                  ├───obj
+                                  │   ├───Debug
+                                  │   │   ├───TempPE
+                                  │   │   ├───Properties
+                                  │   │   ├───Content
+                                  │   │   └───Scripts
+                                  │   ├───Release
+                                  │   │   ├───TempPE
+                                  │   │   ├───Properties
+                                  │   │   ├───Content
+                                  │   │   └───Scripts
+                                  │   └───...
+                                  ├───packages
+                                  │   └───...
+                                  ├───Views
+                                  │   └───web.config
+                                  ├───Web.config
+                                  └───Web.Debug.config
+
 
 --------------------------------------------------------------------------------------------------------------
+
 
 Project Plan:
 
